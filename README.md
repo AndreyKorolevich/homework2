@@ -12,4 +12,4 @@ There is an **optional** part 3 for extra credit:
   - `manifest.json`, `popup.html`, and `popup.js` in the same directory do not have to be modified.
 
 
-See the [Homework 2 spec](http://web.stanford.edu/class/cs193x/homework/2-quiz-ext) for more details and turn-in link.
+See the [Homework 2 spec](https://web.stanford.edu/class/archive/cs/cs193x/cs193x.1176/homework/2-quiz-ext) for more details and turn-in link.
