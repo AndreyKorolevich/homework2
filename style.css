@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 20px 0;
     padding-bottom: 20px;
 }
 
@@ -14,11 +13,52 @@
     padding: 10px;
 }
 
+.card:nth-child(n + 4) {
+    margin-top: 20px;
+}
+
 img {
     width: 100%;
 }
 
-@media  (max-width: 700px) {
+.chose {
+    background-color: #cfe3ff;
+}
+
+.noChose {
+    opacity: 0.6;
+}
+
+.answer {
+    margin-top: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: solid 1px #dcdcdc;
+    background-color: #f4f4f4;
+}
+
+.headReview, .review {
+    margin-bottom: 18px;
+}
+
+.reset{
+    height: 50px;
+    width: 100%;
+    background-color:  #cecece;
+    border: none;
+    font-size: 24px;
+}
+
+.reset:hover {
+    background-color: #e0e0e0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media (max-width: 700px) {
     .article {
         width: 95%;
     }
