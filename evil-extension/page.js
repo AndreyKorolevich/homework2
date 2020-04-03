@@ -11,10 +11,25 @@ const MATCH_LIST = {
 };
 
 function transformTextNodes(node) {
-  // TODO(you): Implement this function! See HW spec for details.
+  if (node.nodeType === Node.TEXT_NODE ) { //проверка что узел текстовый
+    let arr = node.textContent.split(' '); //преобразовать текст в массив
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] != '') {
+        for (const str of Object.keys(MATCH_LIST)) {
+          if (arr[i].trim() == str) {
+            arr[i] = MATCH_LIST[str];
+            break;
+          }
+        }
+      }
+    }
+    node.textContent = arr.join(' ');
+  }
+
+  for (const child of node.childNodes) {
+    transformTextNodes(child);
+  }
 }
 
-transformTextNodes(document.body);
 
-// Log statement to test that the extension loaded properly.
-console.log('Evil extension loaded!');
+transformTextNodes(document.body);
