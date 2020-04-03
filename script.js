@@ -2,6 +2,7 @@ let boxes = document.getElementsByClassName('choice-grid');
 let result = {};
 let finishQuiz = document.querySelector('section:last-child');
 let btn = document.querySelector('section button');
+let noChose = document.getElementsByClassName('card');
 
 for (const box of boxes) {
   let selectedDiv;
@@ -14,6 +15,9 @@ for (const box of boxes) {
         result[container.dataset.questionId] = container.dataset.choiceId;
         choseAnswer(container);
         if (Object.keys(result).length === 3) {
+          for (let i of noChose) {
+            i.style.pointerEvents = "none";
+          }
           winner(result);
           quizResult();
         }
@@ -43,20 +47,22 @@ for (const box of boxes) {
   }
 }
 
-btn.onclick = function (event) { 
+btn.onclick = function (event) {
   finishQuiz.classList.add('hidden');
   let cards = document.getElementsByClassName('card');
   for (const card of cards) {
     if (card.classList.contains('chose')) {
       card.classList.remove('chose');
       let imageCard = card.querySelector('img:last-child');
-      console.log(imageCard);
       imageCard.setAttribute('src', 'images/unchecked.png');
     } else {
       card.classList.remove('noChose');
     }
   }
-  window.scrollTo(0,0);
+  for (let i of noChose) {
+    i.style.pointerEvents = "auto";
+  }
+  window.scrollTo(0, 0);
   result = {};
 }
 
